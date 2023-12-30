@@ -94,7 +94,7 @@ with tab3 :
   most_sold_series = data[data['Series'] != excluded_value].sort_values(by='Sales', ascending=False)
   topsales = most_sold_series.head(10)
   plt.figure(figsize=(10, 6))
-  sns.barplot(topsales, x=topsales['Series'], y=topsales['Sales'], palette='coolwarm', ci=None)
+  sns_plot = sns.barplot(topsales, x=topsales['Series'], y=topsales['Sales'], palette='coolwarm', ci=None)
   # Add annotations to each bar
   for index, row in topsales.iterrows():
     sns_plot.text(index, row['Sales'] + 5, str(row['Sales']), ha='center', color='black')
