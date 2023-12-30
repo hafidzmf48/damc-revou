@@ -94,7 +94,7 @@ with tab3 :
   most_sold_series = data[data['Series'] != excluded_value].sort_values(by='Sales', ascending=False)
   topsales = most_sold_series.head(10)
   plt.figure(figsize=(10, 6))
-  sns.barplot(topsales, x=topsales['Series'], y=topsales['Sales'], palette='coolwarm')
+  sns.barplot(topsales, x=topsales['Series'], y=topsales['Sales'], palette='coolwarm', ci=None)
   plt.xlabel('Series')
   plt.ylabel('Sales')
   plt.xticks(rotation=45)  # Rotate x-axis labels for better readability if needed
