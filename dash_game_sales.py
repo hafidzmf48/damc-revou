@@ -96,8 +96,13 @@ with tab3 :
   plt.figure(figsize=(10, 6))
   sns_plot = sns.barplot(topsales, x=topsales['Series'], y=topsales['Sales'], palette='coolwarm', ci=None)
   # Add annotations to each bar
-  for index, row in topsales.iterrows():
-    sns_plot.text(index, row['Sales'] + 5, str(row['Sales']), ha='center', color='black')
+  counter = 0
+  for p in sns_plot.patches:
+      sns_plot.annotate(str(topsales['Sales'].iloc[counter]), 
+                      (p.get_x() + p.get_width() / 2., p.get_height()), 
+                      ha='center', va='center', xytext=(0, 5), textcoords='offset points', 
+                      fontsize=8, color='black', weight='bold')
+      counter += 1
   plt.xlabel('Series')
   plt.ylabel('Sales')
   plt.xticks(rotation=45)  # Rotate x-axis labels for better readability if needed
