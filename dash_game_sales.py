@@ -97,7 +97,7 @@ with tab3 :
   sns.barplot(topsales, x=topsales['Series'], y=topsales['Sales'], palette='coolwarm', ci=None)
   # Add annotations to each bar
   for index, row in topsales.iterrows():
-    plt.text(index, row['Sales'] + 5, str(row['Sales']), ha='center')
+    sns_plot.text(index, row['Sales'] + 5, str(row['Sales']), ha='center', color='black')
   plt.xlabel('Series')
   plt.ylabel('Sales')
   plt.xticks(rotation=45)  # Rotate x-axis labels for better readability if needed
