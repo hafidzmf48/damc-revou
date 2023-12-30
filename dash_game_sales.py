@@ -95,6 +95,9 @@ with tab3 :
   topsales = most_sold_series.head(10)
   plt.figure(figsize=(10, 6))
   sns.barplot(topsales, x=topsales['Series'], y=topsales['Sales'], palette='coolwarm', ci=None)
+  # Add annotations to each bar
+  for index, row in topsales.iterrows():
+    plt.text(index, row['Sales'] + 5, str(row['Sales']), ha='center')
   plt.xlabel('Series')
   plt.ylabel('Sales')
   plt.xticks(rotation=45)  # Rotate x-axis labels for better readability if needed
